@@ -35,13 +35,11 @@ jobs:
     - name: Sync Capacitor with Android
       run: npx cap sync android
 
-    - name: Generate Gradle Wrapper if missing
+    - name: Generate Compatible Gradle Wrapper
       run: |
         cd android
-        if [ ! -f gradlew ]; then
-          echo "gradlew not found, generating wrapper..."
-          gradle wrapper
-        fi
+        echo "Generating compatible Gradle 8.5 wrapper..."
+        gradle wrapper --gradle-version 8.5
 
     - name: Make Gradle Executable
       run: chmod +x android/gradlew
