@@ -1,0 +1,6 @@
+{
+  "appId": "com.alhusam.phone",
+  "appName": "الحسام فون",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

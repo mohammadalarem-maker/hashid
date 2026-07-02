@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.google.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Outer Elegant Phone Frame -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#B8860B"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M38,24 h32 c4.4,0 8,3.6 8,8 v44 c0,4.4 -3.6,8 -8,8 h-32 c-4.4,0 -8,-3.6 -8,-8 v-44 c0,-4.4 3.6,-8 8,-8 z" />
+
+    <!-- Screen inner border top/bottom lines -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#B8860B"
+        android:strokeWidth="1.5"
+        android:pathData="M30,30 h48 M30,76 h48" />
+
+    <!-- Speaker receiver & Home indicator -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#B8860B"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M50,27 h8" />
+    <path
+        android:fillColor="#B8860B"
+        android:pathData="M54,80 a2.5,2.5 0 1,1 0,0.001 Z" />
+
+    <!-- The Elegant Sword (Husam) crossing inside the screen -->
+    <!-- Blade vertical in the center -->
+    <path
+        android:fillColor="#B8860B"
+        android:pathData="M53,35 h2 v25 h-2 z" />
+    <!-- Sharp blade tip -->
+    <path
+        android:fillColor="#B8860B"
+        android:pathData="M53,35 l1,-4 l1,4 z" />
+    <!-- Guard (crossguard) -->
+    <path
+        android:fillColor="#B8860B"
+        android:pathData="M49,60 h10 v2.5 h-10 z" />
+    <!-- Hilt (handle) -->
+    <path
+        android:fillColor="#B8860B"
+        android:pathData="M53,62.5 h2 v6 h-2 z" />
+    <!-- Pommel (bottom knob) -->
+    <path
+        android:fillColor="#B8860B"
+        android:pathData="M52.5,68.5 h3 v2.5 h-3 z" />
+
+</vector>

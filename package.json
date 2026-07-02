@@ -1,0 +1,53 @@
+{
+  "name": "applet",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "start": "node dist/server.cjs",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@capacitor-community/bluetooth-le": "8.2.0",
+    "@capacitor/android": "8.4.1",
+    "@capacitor/camera": "8.2.0",
+    "@capacitor/cli": "8.4.1",
+    "@capacitor/core": "8.4.0",
+    "@capacitor/filesystem": "8.1.2",
+    "@capacitor/local-notifications": "8.2.0",
+    "@capacitor/push-notifications": "8.1.1",
+    "@capacitor/share": "8.0.1",
+    "@google/genai": "2.8.0",
+    "@ionic/pwa-elements": "3.4.0",
+    "@tailwindcss/vite": "4.3.1",
+    "@tanstack/react-query": "5.101.0",
+    "@vitejs/plugin-react": "4.3.4",
+    "@zxing/library": "^0.21.3",
+    "express": "4.19.0",
+    "firebase": "12.14.0",
+    "html-to-image": "1.11.13",
+    "html2canvas": "1.4.1",
+    "html5-qrcode": "2.3.8",
+    "jspdf": "4.2.1",
+    "lucide-react": "1.18.0",
+    "motion": "12.40.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-hot-toast": "2.6.0",
+    "react-router-dom": "7.17.0",
+    "recharts": "3.8.1",
+    "tailwindcss": "4.3.1",
+    "tsx": "4.7.1",
+    "vite": "5.4.11"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@types/react-router-dom": "5.3.3",
+    "esbuild": "0.20.0",
+    "jimp": "^1.6.1",
+    "typescript": "5.3.3"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "project_info": {
+    "project_number": "769797520694",
+    "project_id": "gen-lang-client-0621337551",
+    "storage_bucket": "gen-lang-client-0621337551.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769797520694:android:3634a7ee8b2b4c406f4797",
+        "android_client_info": {
+          "package_name": "com.alhusam.phone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm0rinMzRLZl9GWqIk3OqpIBaDMctbTUE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

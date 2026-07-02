@@ -1,0 +1,101 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global Safety Net matching rules_version guidelines
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Global helper methods
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isUserVerified() {
+      return isSignedIn();
+    }
+
+    // 1. Users configuration
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if isUserVerified();
+    }
+
+    // 2. Items inventory configuration
+    match /items/{itemId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 3. Customers profiles
+    match /customers/{customerId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 4. Categories 
+    match /categories/{categoryId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 5. Activity Logs logs tracker
+    match /user_activity/{activityId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 6. Settings parameters
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if isUserVerified();
+    }
+
+    // 7. FCM Push Tokens register
+    match /fcm_tokens/{tokenId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 8. System Alerts status registers
+    match /system_alerts/{alertId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 9. Debts accounts records
+    match /debts/{debtId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 10. Journal general entries
+    match /journal/{entryId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 11. Expenses trackers
+    match /expenses/{expenseId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 12. Invoices ledger records
+    match /invoices/{invoiceId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 13. Audit activities tracker
+    match /activities/{activityId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 14. Accounts configuration
+    match /accounts/{accountId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 15. Payments collection ledger
+    match /payments/{paymentId} {
+      allow read, write: if isUserVerified();
+    }
+
+    // 16. Network services, cards & packages
+    match /network_services/{serviceId} {
+      allow read, write: if isUserVerified();
+    }
+  }
+}

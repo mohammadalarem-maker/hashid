@@ -1,0 +1,6 @@
+{
+  "name": "نظام الحسام فون",
+  "description": "نظام تسيير وإدارة مخازن ومبيعات الحسام فون بنظام كاشير متقدم واستيراد تلقائي بالذكاء الاصطناعي.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

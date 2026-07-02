@@ -1,0 +1,301 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Store personnel and admin credentials and privilege roles",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "sales", "manager"] },
+        "status": { "type": "string", "enum": ["active", "suspended"] },
+        "displayName": { "type": "string" },
+        "uid": { "type": "string" },
+        "password": { "type": "string" },
+        "lastLogin": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "fcmToken": { "type": "string" },
+        "fcmEnabled": { "type": "boolean" }
+      },
+      "required": ["email", "role", "status", "uid"]
+    },
+    "Item": {
+      "title": "Item",
+      "description": "POS mobile product items",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string" },
+        "code": { "type": "string" },
+        "stock": { "type": "number" },
+        "unit": { "type": "string" },
+        "minStock": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "purchasePrice": { "type": "number" }
+      },
+      "required": ["name", "price", "stock", "category"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "Customer database records and loyalty points",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "points": { "type": "number" },
+        "totalPurchases": { "type": "number" },
+        "lastPurchaseDate": { "type": "string" }
+      },
+      "required": ["name", "phone"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Item product categories",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" }
+      },
+      "required": ["name"]
+    },
+    "UserActivity": {
+      "title": "UserActivity",
+      "description": "Logs of user actions and operations done in the system",
+      "type": "object",
+      "properties": {
+        "action": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "user": { "type": "string" },
+        "amount": { "type": "number" },
+        "details": { "type": "string" }
+      },
+      "required": ["action", "timestamp", "user"]
+    },
+    "SettingsGlobal": {
+      "title": "SettingsGlobal",
+      "description": "Global customization parameters for the store front",
+      "type": "object",
+      "properties": {
+        "shopName": { "type": "string" },
+        "shopPhone": { "type": "string" },
+        "shopAddress": { "type": "string" },
+        "receiptNotes": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "soundAlertsEnabled": { "type": "boolean" },
+        "vatPercent": { "type": "number" }
+      },
+      "required": ["shopName"]
+    },
+    "FcmToken": {
+      "title": "FcmToken",
+      "description": "Cloud Messaging subscriber identifiers",
+      "type": "object",
+      "properties": {
+        "token": { "type": "string" },
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "device": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["token", "userId"]
+    },
+    "SystemAlert": {
+      "title": "SystemAlert",
+      "description": "System alerts and inventory low stock warnings",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "read": { "type": "boolean" }
+      },
+      "required": ["title", "message", "timestamp"]
+    },
+    "Debt": {
+      "title": "Debt",
+      "description": "Customer remaining unpaid debt amounts",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "description": { "type": "string" },
+        "amountTotal": { "type": "number" },
+        "amountPaid": { "type": "number" },
+        "amountRemaining": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "dueDate": { "type": "string" }
+      },
+      "required": ["customerName", "amountTotal", "amountPaid", "amountRemaining", "createdAt"]
+    },
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "description": "Double-entry general journal records",
+      "type": "object",
+      "properties": {
+        "referenceNo": { "type": "string" },
+        "date": { "type": "string" },
+        "description": { "type": "string" },
+        "debitAccount": { "type": "string" },
+        "debitAmount": { "type": "number" },
+        "creditAccount": { "type": "string" },
+        "creditAmount": { "type": "number" },
+        "createdBy": { "type": "string" }
+      },
+      "required": ["referenceNo", "date", "description", "debitAccount", "debitAmount", "creditAccount", "creditAmount"]
+    },
+    "Expense": {
+      "title": "Expense",
+      "description": "Operational business expenses",
+      "type": "object",
+      "properties": {
+        "amount": { "type": "number" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "date": { "type": "string" },
+        "receiptUrl": { "type": "string" },
+        "createdBy": { "type": "string" }
+      },
+      "required": ["amount", "category", "description", "date"]
+    },
+    "Invoice": {
+      "title": "Invoice",
+      "description": "Customer bills and point of sales invoices",
+      "type": "object",
+      "properties": {
+        "number": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discount": { "type": "number" },
+        "tax": { "type": "number" },
+        "total": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["number", "customerName", "items", "subtotal", "total", "paymentMethod", "date"]
+    },
+    "ActivityLogItem": {
+      "title": "ActivityLogItem",
+      "description": "Audit logging activities",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "description": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "userEmail": { "type": "string" }
+      },
+      "required": ["type", "description", "timestamp"]
+    },
+    "Account": {
+      "title": "Account",
+      "description": "Accounting chart accounts",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "balance": { "type": "number" },
+        "description": { "type": "string" }
+      },
+      "required": ["code", "name", "type", "balance"]
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "Debt or bill payment events tracking",
+      "type": "object",
+      "properties": {
+        "debtId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "amountPaid": { "type": "number" },
+        "date": { "type": "string" },
+        "createdBy": { "type": "string" }
+      },
+      "required": ["debtId", "customerName", "amountPaid", "date"]
+    },
+    "NetworkService": {
+      "title": "NetworkService",
+      "description": "Network Wi-Fi cards and credit recharge package service inventory items",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string", "enum": ["card", "recharge"] },
+        "networkName": { "type": "string" },
+        "costPrice": { "type": "number" },
+        "salePrice": { "type": "number" },
+        "stockQty": { "type": "number" },
+        "unit": { "type": "string" },
+        "minLimit": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "type", "networkName", "costPrice", "salePrice", "stockQty"]
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "User",
+      "description": "List of system operators and administrators"
+    },
+    "items": {
+      "schema": "Item",
+      "description": "Store inventory products list"
+    },
+    "customers": {
+      "schema": "Customer",
+      "description": "Store customer database records"
+    },
+    "categories": {
+      "schema": "Category",
+      "description": "Supported inventory categories"
+    },
+    "user_activity": {
+      "schema": "UserActivity",
+      "description": "Activity timeline actions logger"
+    },
+    "settings": {
+      "schema": "SettingsGlobal",
+      "description": "Global dynamic branding and preferences parameters"
+    },
+    "fcm_tokens": {
+      "schema": "FcmToken",
+      "description": "Active FCM push registration tokens"
+    },
+    "system_alerts": {
+      "schema": "SystemAlert",
+      "description": "Automated security or health status registers"
+    },
+    "debts": {
+      "schema": "Debt",
+      "description": "Customer debts tracking list"
+    },
+    "journal": {
+      "schema": "JournalEntry",
+      "description": "Double-entry general journal entries list"
+    },
+    "expenses": {
+      "schema": "Expense",
+      "description": "System expenses logger"
+    },
+    "invoices": {
+      "schema": "Invoice",
+      "description": "System point of sales invoices logger"
+    },
+    "activities": {
+      "schema": "ActivityLogItem",
+      "description": "System trace activity logger"
+    },
+    "accounts": {
+      "schema": "Account",
+      "description": "ERP accounting chart accounts"
+    },
+    "payments": {
+      "schema": "Payment",
+      "description": "Transactions of debt collections logger"
+    },
+    "network_services": {
+      "schema": "NetworkService",
+      "description": "Network Wi-Fi cards and credit recharge package service inventory records"
+    }
+  }
+}
